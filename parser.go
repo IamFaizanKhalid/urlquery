@@ -2,6 +2,7 @@ package urlquery
 
 import (
 	"bytes"
+	"fmt"
 	"reflect"
 	"strconv"
 	"strings"
@@ -253,6 +254,8 @@ func (p *parser) parseValue(rv reflect.Value, parentNode string) {
 		rv.Set(v)
 	} else if v.CanConvert(targetType) {
 		rv.Set(v.Convert(targetType))
+	} else {
+		panic(fmt.Sprintf("parseValue: value of type %s is not assignable to type %s", srcType, targetType))
 	}
 }
 
