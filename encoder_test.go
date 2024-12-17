@@ -220,7 +220,7 @@ func TestEncoder_RegisterEncodeFunc(t *testing.T) {
 	}
 }
 
-//BenchmarkMarshal-4     	  295726	     11902 ns/op
+// BenchmarkMarshal-4     	  295726	     11902 ns/op
 func BenchmarkMarshal(b *testing.B) {
 	data := getMockData2()
 

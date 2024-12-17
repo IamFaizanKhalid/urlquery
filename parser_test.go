@@ -385,8 +385,8 @@ func TestParser_parseForSlice_CanSet(t *testing.T) {
 	parser.parseForSlice(v, "")
 }
 
-//mock multi-layer nested structure,
-//BenchmarkUnmarshal-4   	  208219	     14873 ns/op
+// mock multi-layer nested structure,
+// BenchmarkUnmarshal-4   	  208219	     14873 ns/op
 func BenchmarkUnmarshal(b *testing.B) {
 	var data = "Id=1&name=test&child[desc]=c1&child[Long]=10&childPtr[Long]=2&childPtr[Description]=b" +
 		"&children[0][desc]=d1&children[1][Long]=12&children[5][desc]=d5&children[5][Long]=50&desc=rtt" +

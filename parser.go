@@ -246,7 +246,14 @@ func (p *parser) parseValue(rv reflect.Value, parentNode string) {
 		return
 	}
 
-	rv.Set(v)
+	srcType := v.Type()
+	targetType := rv.Type()
+
+	if srcType.AssignableTo(targetType) {
+		rv.Set(v)
+	} else if v.CanConvert(targetType) {
+		rv.Set(v.Convert(targetType))
+	}
 }
 
 // parse text to specified-type value
